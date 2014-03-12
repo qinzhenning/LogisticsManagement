@@ -9,5 +9,5 @@ package com.LogisticsManagement.logic;
  */
 public class Order {
 	private String oid;
-	private String status;
+	private int s;
 }
