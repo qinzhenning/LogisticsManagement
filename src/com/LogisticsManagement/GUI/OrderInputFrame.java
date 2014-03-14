@@ -7,10 +7,16 @@ import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+
+import com.LogisticsManagement.logic.ProductModel;
+
 
 /**
  * @author qinzhenning
@@ -98,6 +104,33 @@ public class OrderInputFrame {
 		JTextField caddresstext = new JTextField();
 		caddresstext.setBounds(470, 85, 410, 25);
 		inputPanel.add(caddresstext);
+		
+		
+		//货物表格
+		JPanel propanel = new JPanel();
+		propanel.setBounds(5, 108, 890, 370);
+		mainPanel.add(propanel);
+		JScrollPane pscrollpane = new JScrollPane();
+		pscrollpane.setBounds(2, 15, 885, 355);
+		propanel.add(pscrollpane);
+		JTable ptable = new JTable();
+		ptable.setModel(new ProductModel(null));
+		ptable.setFont(new Font("微软雅黑", Font.BOLD, 15));
+		ptable.setFillsViewportHeight(true);
+		pscrollpane.setViewportView(ptable);
+		
+		//添加货物、删除货物、确认创建 按钮
+		JButton addPbutton =  new JButton("添加货物");
+		addPbutton.setBounds(620, 480, 80, 40);
+		JButton deletePPbutton =  new JButton("删除货物");
+		deletePPbutton.setBounds(705, 480, 80, 40);
+		JButton addObutton =  new JButton("确认创建");
+		addObutton.setBounds(814, 480, 80, 40);
+		mainPanel.add(addPbutton);
+		mainPanel.add(deletePPbutton);
+		mainPanel.add(addObutton);
+		
+		
 		
 		
 		

@@ -26,6 +26,6 @@ public class Order {
 	private ArrayList<ArrayList<String>> 	move_message;//流转信息列表 二维列表，指定3列：时间、地点、操作人；行数不限制
 	private Date				sdate;//订单创建时间
 	private Date				edate;//订单结束时间
-	private boolean				isCOD;//是否需要代收货款
+	private double				COD;//代收货款
 	
 }
