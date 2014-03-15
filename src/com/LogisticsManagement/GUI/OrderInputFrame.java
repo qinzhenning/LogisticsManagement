@@ -28,6 +28,7 @@ public class OrderInputFrame {
 		mainPanel.setBackground(Color.white);
 		mainFrame.setBackground(Color.white);
 		mainPanel.setBounds(0, 0, 905, 527);
+		mainFrame.setTitle("物流运营管理系统-运单录入");
 		mainFrame.getContentPane().add(mainPanel);
 		mainPanel.setLayout(null);
 		
@@ -118,6 +119,12 @@ public class OrderInputFrame {
 		ptable.setFont(new Font("微软雅黑", Font.BOLD, 15));
 		ptable.setFillsViewportHeight(true);
 		pscrollpane.setViewportView(ptable);
+		
+		//当前运费label
+		JLabel translabel = new JLabel("当前运费：");
+		translabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
+		translabel.setBounds(5, 480, 200, 40);
+		mainPanel.add(translabel);
 		
 		//添加货物、删除货物、确认创建 按钮
 		JButton addPbutton =  new JButton("添加货物");

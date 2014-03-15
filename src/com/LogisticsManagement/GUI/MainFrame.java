@@ -19,6 +19,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
+import com.LogisticsManagement.logic.OrderList;
+
 
 
 
@@ -31,6 +33,9 @@ public class MainFrame {
 	private JPanel mainPanel;
 	
 	private void initialize() {
+		//数据初始化
+		OrderList orderlist = new OrderList();
+		
 		//主界面
 		mainFrame = new JFrame();
 		mainFrame.setTitle("物流运营管理系统");
@@ -102,7 +107,9 @@ public class MainFrame {
 		seeMenuItem.setFont(new Font("微软雅黑", Font.BOLD, 15));
 		seeMenuItem.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent arg0) {
-						
+			mainPanel.removeAll();
+			new OrderExaminationFrame(mainFrame, mainPanel);
+			mainPanel.repaint();
 			}
 		});		
 		//运单管理菜单--录入
@@ -115,18 +122,8 @@ public class MainFrame {
 			mainPanel.repaint();
 			}
 		});
-		//运单管理菜单--更新
-		JMenuItem updateMenuItem = new JMenuItem("运单更新");
-		updateMenuItem.setFont(new Font("微软雅黑", Font.BOLD, 15));
-		updateMenuItem.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent arg0) {
-						
-			}
-		});
 		orderMenu.add(seeMenuItem);
-		orderMenu.add(inputMenuItem);
-		orderMenu.add(updateMenuItem);
-				
+		orderMenu.add(inputMenuItem);				
 				
 		mainFrame.setVisible(true);
 	}

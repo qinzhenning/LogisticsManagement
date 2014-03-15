@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * 2014-3-15ÉÏÎç1:40:01
  */
 public class OrderList {
-	private ArrayList<Order> orderlist;
+	private static ArrayList<Order> orderlist;
 	
 	public OrderList(){
 		orderlist = new ArrayList();

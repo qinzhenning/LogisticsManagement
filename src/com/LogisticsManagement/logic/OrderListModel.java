@@ -7,38 +7,45 @@ import java.util.ArrayList;
 
 import javax.swing.table.AbstractTableModel;
 
-
 /**
  * @author qinzhenning
- * 2014-3-14下午9:19:40
+ * 2014-3-15下午1:30:28
  */
-public class ProductModel extends AbstractTableModel{
+public class OrderListModel extends AbstractTableModel {
 
-	final String title[]={"货物编号","货物名称","货物数量","货物总重量","是否易碎"};
+	final String title[]={"运单编号","运单状态","创建时间","结束时间","发货人姓名","发货人电话","收货人姓名","收货人电话","代售货款"};
 	Object content[][];
 	private static final long serialVersionUID = -7495940408592595397L;
 
-    public ProductModel(ArrayList<Product> temp) {
+    public OrderListModel(ArrayList<Order> temp) {
     	if(temp!= null)
     	{
-	        content = new Object[temp.size()][5];
+	        content = new Object[temp.size()][9];
 	        for(int i=0;i<temp.size();i++){
-				content[i][0]=temp.get(i).getPid();
-				content[i][1]=temp.get(i).getPname();
-				content[i][2]=temp.get(i).getPnum();
-				content[i][3]=temp.get(i).getSumpweight();
-				content[i][4]=temp.get(i).isSquashy();
+				content[i][0]=temp.get(i).getOid();
+				content[i][1]=temp.get(i).getStatus();
+				content[i][2]=temp.get(i).getSdate();
+				content[i][3]=temp.get(i).getEdate();
+				content[i][4]=temp.get(i).getEdate();
+				content[i][5]=temp.get(i).getEdate();
+				content[i][6]=temp.get(i).getEdate();
+				content[i][7]=temp.get(i).getEdate();
+				content[i][8]=temp.get(i).getEdate();
 			}
     	}
     	else
     	{
-    		 content = new Object[20][5];
+    		 content = new Object[20][9];
     		 for(int i=0;i<20;i++){
  				content[i][0]="";
  				content[i][1]="";
  				content[i][2]="";
  				content[i][3]="";
  				content[i][4]="";
+ 				content[i][5]="";
+ 				content[i][6]="";
+ 				content[i][7]="";
+ 				content[i][8]="";
  			}
     	}
     }
@@ -59,3 +66,4 @@ public class ProductModel extends AbstractTableModel{
     	return title[col];
     }
 }
+
