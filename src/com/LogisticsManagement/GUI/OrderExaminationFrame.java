@@ -5,6 +5,7 @@ package com.LogisticsManagement.GUI;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,6 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import com.LogisticsManagement.logic.Order;
 import com.LogisticsManagement.logic.OrderListModel;
 import com.LogisticsManagement.logic.ProductModel;
 
@@ -22,7 +24,7 @@ import com.LogisticsManagement.logic.ProductModel;
  */
 public class OrderExaminationFrame {
 	
-	public OrderExaminationFrame(JFrame mainFrame,JPanel mainPanel){
+	public OrderExaminationFrame(JFrame mainFrame,JPanel mainPanel,ArrayList<Order> olist){
 		mainPanel.setBackground(Color.white);
 		mainFrame.setBackground(Color.white);
 		mainFrame.setTitle("物流运营管理系统-运单查看");
@@ -43,7 +45,7 @@ public class OrderExaminationFrame {
 		oscrollpane.setBounds(5, 40, 890, 435);
 		mainPanel.add(oscrollpane);
 		JTable otable = new JTable();
-		otable.setModel(new OrderListModel(null));
+		otable.setModel(new OrderListModel(olist));
 		otable.setFont(new Font("微软雅黑", Font.BOLD, 15));
 		otable.setFillsViewportHeight(true);
 		oscrollpane.setViewportView(otable);

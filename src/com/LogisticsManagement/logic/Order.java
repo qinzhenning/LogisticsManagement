@@ -14,35 +14,35 @@ import java.util.Date;
  */
 public class Order {
 	private int 				oid;//运单编号
-	private ArrayList<Integer> 	pid;//货物编号列表
+	private ArrayList<Product> 	plist;//货物编号列表
 	private double 				trans_price;//运输费用
-	private String				sid;//发货人姓名
+	private String				sname;//发货人姓名
 	private String				sphone;//发货人电话
 	private String				saddress;//发货人地址
-	private String 				cid;//收货人姓名
-	private String				caddress;//收货人电话
-	private String				address;//收货地址
+	private String 				cname;//收货人姓名
+	private String				cphone;//收货人电话
+	private String				caddress;//收货地址
 	private OrderStatus 		status; //运单状态
 	private ArrayList<ArrayList<String>> 	move_message;//流转信息列表 二维列表，指定3列：时间、地点、操作人；行数不限制
-	private Date				sdate;//订单创建时间
-	private Date				edate;//订单结束时间
+	private String				sdate;//订单创建时间
+	private String				edate;//订单结束时间
 	private double				COD;//代收货款
 	
-	public Order(int oid, ArrayList<Integer> pid, double trans_price,
-			String sid, String sphone, String saddress, String cid,
-			String caddress, String address, OrderStatus status,
-			ArrayList<ArrayList<String>> move_message, Date sdate, Date edate,
+	public Order(int oid, ArrayList<Product> plist, double trans_price,
+			String sname, String sphone, String saddress, String cname,
+			String cphone, String caddress, OrderStatus status,
+			ArrayList<ArrayList<String>> move_message, String sdate, String edate,
 			double cOD) {
 		super();
 		this.oid = oid;
-		this.pid = pid;
+		this.plist = plist;
 		this.trans_price = trans_price;
-		this.sid = sid;
+		this.sname = sname;
 		this.sphone = sphone;
 		this.saddress = saddress;
-		this.cid = cid;
+		this.cname = cname;
+		this.cphone = cphone;
 		this.caddress = caddress;
-		this.address = address;
 		this.status = status;
 		this.move_message = move_message;
 		this.sdate = sdate;
@@ -54,16 +54,16 @@ public class Order {
 		return oid;
 	}
 
-	public ArrayList<Integer> getPid() {
-		return pid;
+	public ArrayList<Product> getPlist() {
+		return plist;
 	}
 
 	public double getTrans_price() {
 		return trans_price;
 	}
 
-	public String getSid() {
-		return sid;
+	public String getSname() {
+		return sname;
 	}
 
 	public String getSphone() {
@@ -74,16 +74,16 @@ public class Order {
 		return saddress;
 	}
 
-	public String getCid() {
-		return cid;
+	public String getCname() {
+		return cname;
+	}
+
+	public String getCphone() {
+		return cphone;
 	}
 
 	public String getCaddress() {
 		return caddress;
-	}
-
-	public String getAddress() {
-		return address;
 	}
 
 	public OrderStatus getStatus() {
@@ -94,11 +94,11 @@ public class Order {
 		return move_message;
 	}
 
-	public Date getSdate() {
+	public String getSdate() {
 		return sdate;
 	}
 
-	public Date getEdate() {
+	public String getEdate() {
 		return edate;
 	}
 

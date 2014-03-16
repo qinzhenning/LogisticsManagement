@@ -26,11 +26,11 @@ public class OrderListModel extends AbstractTableModel {
 				content[i][1]=temp.get(i).getStatus();
 				content[i][2]=temp.get(i).getSdate();
 				content[i][3]=temp.get(i).getEdate();
-				content[i][4]=temp.get(i).getEdate();
-				content[i][5]=temp.get(i).getEdate();
-				content[i][6]=temp.get(i).getEdate();
-				content[i][7]=temp.get(i).getEdate();
-				content[i][8]=temp.get(i).getEdate();
+				content[i][4]=temp.get(i).getSname();
+				content[i][5]=temp.get(i).getSphone();
+				content[i][6]=temp.get(i).getCname();
+				content[i][7]=temp.get(i).getCphone();
+				content[i][8]=temp.get(i).getCOD();
 			}
     	}
     	else

@@ -27,7 +27,10 @@ public class ProductModel extends AbstractTableModel{
 				content[i][1]=temp.get(i).getPname();
 				content[i][2]=temp.get(i).getPnum();
 				content[i][3]=temp.get(i).getSumpweight();
-				content[i][4]=temp.get(i).isSquashy();
+				if(temp.get(i).isSquashy())
+					content[i][4]="ÊÇ";
+				else
+					content[i][4]="·ñ";
 			}
     	}
     	else

@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.rmi.Naming;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -19,7 +20,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
-import com.LogisticsManagement.logic.OrderList;
+import com.LogisticsManagement.logic.Order;
 
 
 
@@ -31,10 +32,10 @@ import com.LogisticsManagement.logic.OrderList;
 public class MainFrame {
 	private JFrame mainFrame;
 	private JPanel mainPanel;
+	private static ArrayList<Order> orderlist = new ArrayList();
 	
 	private void initialize() {
-		//数据初始化
-		OrderList orderlist = new OrderList();
+		
 		
 		//主界面
 		mainFrame = new JFrame();
@@ -108,7 +109,7 @@ public class MainFrame {
 		seeMenuItem.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent arg0) {
 			mainPanel.removeAll();
-			new OrderExaminationFrame(mainFrame, mainPanel);
+			new OrderExaminationFrame(mainFrame, mainPanel,orderlist);
 			mainPanel.repaint();
 			}
 		});		
@@ -135,4 +136,7 @@ public class MainFrame {
 		frame.initialize();
 	}
 
+	public static ArrayList<Order> getOrderList(){
+		return orderlist;
+	}
 }
