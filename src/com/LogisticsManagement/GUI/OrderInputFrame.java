@@ -36,12 +36,15 @@ public class OrderInputFrame {
 	private JTextField codtext,transtext,idtext,datetext,snametext,sphonetext,saddresstext,cnametext,cphonetext,caddresstext;
 	private JTable ptable;
 	private String time;
+	private String oid;
 	
 	public OrderInputFrame(final JFrame mainFrame,final JPanel mainPanel){
 		//初始化数据
 		plist = new ArrayList();
 		Date date = new Date();
-		time = (date.getYear()+1900)+"-"+date.getMonth()+"-"+date.getDate();
+		time = (date.getYear()+1900)+"-"+(date.getMonth()+1)+"-"+date.getDate();
+		oid = date.getYear() +"" + date.getMonth() + ""+ date.getDate() + 
+				""+ date.getHours() + "" + date.getMinutes() + "" +date.getSeconds();
 		
 		//主界面初始化
 		mainPanel.setBackground(Color.white);
@@ -86,7 +89,7 @@ public class OrderInputFrame {
 		idLabel.setFont(new Font("微软雅黑", Font.PLAIN, 14));
 		idLabel.setBounds(530, 10, 60, 25);
 		inputPanel.add(idLabel);
-		idtext = new JTextField("0000000001");
+		idtext = new JTextField(oid);
 		idtext.setBounds(590, 10, 120, 25);
 		idtext.setEnabled(false);
 		inputPanel.add(idtext);
@@ -230,10 +233,10 @@ public class OrderInputFrame {
 					new MessageUI(Color.BLUE,"信息没有填写完整哦！");
 				else
 				{
-					MainFrame.getOrderList().add((new Order(Integer.parseInt(idtext.getText()),plist,
+					MainFrame.getOrderList().add((new Order(idtext.getText(),plist,
 							Double.valueOf(transtext.getText()),snametext.getText(),sphonetext.getText(),
 							saddresstext.getText(),cnametext.getText(),cphonetext.getText(),
-							caddresstext.getText(),OrderStatus.NOTSEND,null,time,"",
+							caddresstext.getText(),"未发货",new ArrayList<String>(),time,"",
 							Double.valueOf(codtext.getText()))));
 					new MessageUI(Color.green,"订单录入成功");
 					mainPanel.removeAll();

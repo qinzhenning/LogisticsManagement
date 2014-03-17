@@ -100,13 +100,13 @@ public class ProductDialog extends JDialog{
 				
 				// TODO 自动生成的方法存根
 				if(yesbutton.isSelected()){
-					plist.add(new Product(Integer.parseInt(idtext.getText()),nametext.getText(),
+					plist.add(new Product(idtext.getText(),nametext.getText(),
 							Integer.parseInt(numtext.getText()),Double.valueOf(weighttext.getText()),true));
 					dispose();
 					ptable.setModel(new ProductModel(plist));
 				}
 				else{
-					plist.add(new Product(Integer.parseInt(idtext.getText()),nametext.getText(),
+					plist.add(new Product(idtext.getText(),nametext.getText(),
 							Integer.parseInt(numtext.getText()),Double.valueOf(weighttext.getText()),false));
 					dispose();
 					ptable.setModel(new ProductModel(plist));

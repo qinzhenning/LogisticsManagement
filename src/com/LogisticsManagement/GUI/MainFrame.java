@@ -21,6 +21,7 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
 import com.LogisticsManagement.logic.Order;
+import com.LogisticsManagement.logic.Product;
 
 
 
@@ -32,10 +33,18 @@ import com.LogisticsManagement.logic.Order;
 public class MainFrame {
 	private JFrame mainFrame;
 	private JPanel mainPanel;
-	private static ArrayList<Order> orderlist = new ArrayList();
+	public static ArrayList<Order> orderlist = new ArrayList();
 	
 	private void initialize() {
-		
+		Product p1 = new Product("1233121","牙膏",15,66,true);
+		Product p2 = new Product("1233122","玩具枪",18,66,false);
+		Product p3 = new Product("1233123","雨伞",88,180,true);
+		ArrayList<Product> p = new ArrayList<Product>();
+		p.add(p1);
+		p.add(p2);
+		p.add(p3);
+		orderlist.add(new Order("1121341124", p, 1000.0, "小明", "15195991111", "广西南宁市上林县", "小红", 
+				"18697243456", "北京西城区", "已经发货", new ArrayList<String>() , "2014-3-14", "", 0));
 		
 		//主界面
 		mainFrame = new JFrame();

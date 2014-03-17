@@ -13,7 +13,7 @@ import java.util.Date;
  * 2014-3-12下午1:15:05
  */
 public class Order {
-	private int 				oid;//运单编号
+	private String 				oid;//运单编号
 	private ArrayList<Product> 	plist;//货物编号列表
 	private double 				trans_price;//运输费用
 	private String				sname;//发货人姓名
@@ -22,16 +22,16 @@ public class Order {
 	private String 				cname;//收货人姓名
 	private String				cphone;//收货人电话
 	private String				caddress;//收货地址
-	private OrderStatus 		status; //运单状态
-	private ArrayList<ArrayList<String>> 	move_message;//流转信息列表 二维列表，指定3列：时间、地点、操作人；行数不限制
+	private String 				status; //运单状态
+	private ArrayList<String> 	move_message;//流转信息列表 二维列表，指定3列：时间、地点、操作人；行数不限制
 	private String				sdate;//订单创建时间
 	private String				edate;//订单结束时间
 	private double				COD;//代收货款
 	
-	public Order(int oid, ArrayList<Product> plist, double trans_price,
+	public Order(String oid, ArrayList<Product> plist, double trans_price,
 			String sname, String sphone, String saddress, String cname,
-			String cphone, String caddress, OrderStatus status,
-			ArrayList<ArrayList<String>> move_message, String sdate, String edate,
+			String cphone, String caddress, String status,
+			ArrayList<String> move_message, String sdate, String edate,
 			double cOD) {
 		super();
 		this.oid = oid;
@@ -50,7 +50,7 @@ public class Order {
 		COD = cOD;
 	}
 
-	public int getOid() {
+	public String getOid() {
 		return oid;
 	}
 
@@ -86,11 +86,11 @@ public class Order {
 		return caddress;
 	}
 
-	public OrderStatus getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public ArrayList<ArrayList<String>> getMove_message() {
+	public ArrayList<String> getMove_message() {
 		return move_message;
 	}
 
@@ -104,6 +104,22 @@ public class Order {
 
 	public double getCOD() {
 		return COD;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public void addMove_message(String move_message) {
+		this.move_message.add(move_message);
+	}
+
+	public void setSdate(String sdate) {
+		this.sdate = sdate;
+	}
+
+	public void setEdate(String edate) {
+		this.edate = edate;
 	}
 	
 	

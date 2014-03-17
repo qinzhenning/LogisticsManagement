@@ -13,7 +13,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class OrderListModel extends AbstractTableModel {
 
-	final String title[]={"运单编号","运单状态","创建时间","结束时间","发货人姓名","发货人电话","收货人姓名","收货人电话","代售货款"};
+	final String title[]={"运单编号","运单状态","创建时间","结束时间","发货人姓名","发货人电话","收货人姓名","收货人电话","代收货款"};
 	Object content[][];
 	private static final long serialVersionUID = -7495940408592595397L;
 
