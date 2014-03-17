@@ -3,7 +3,9 @@
  */
 package com.LogisticsManagement.logic;
 
+
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * @author qinzhenning
@@ -11,7 +13,54 @@ import java.util.ArrayList;
  */
 public class Car {
 	private int cid;//汽车编号
+	private String clicense;//汽车牌照
+	private Date cbuy;//购买时间
 	private CarsStatus cstatus;//汽车状态
-	private ArrayList<Integer> orlist;//订单编号列表
+	private String cuser;//驾驶员
+	private ArrayList<Order> orlist;//订单编号列表
+	
+	public void setCid(int id){
+		cid=id;
+	}
+	public int getCid(){
+		return cid;
+	}
+	
+	public void setClicense(String  s){
+		clicense=s;
+	}
+	public String getClicense(){
+		return clicense;
+	}
+	
+	public void setCbuy(Date d){
+		cbuy=d;
+	}
+	public Date getCbuy(){
+		return cbuy;
+	}
+	
+	public void setCstatus(CarsStatus cs){
+		cstatus=cs;
+	}
+	public CarsStatus getCarsStatus(){
+		return cstatus;
+	}
+	
+	public void setCuser(String u){
+		cuser=u;
+	}
+	public String getCuser(){
+		return cuser;
+	}
+	
+	
+	public ArrayList<Order> getOrlist(){
+		return orlist;
+	}
+	
+	public void setOrlist(ArrayList<Order> o){
+		orlist=o;
+	}
 	
 }

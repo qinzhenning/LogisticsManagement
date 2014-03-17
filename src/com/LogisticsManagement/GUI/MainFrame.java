@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
+import com.LogisticsManagement.logic.Car;
 import com.LogisticsManagement.logic.Order;
 import com.LogisticsManagement.logic.Product;
 
@@ -34,6 +35,7 @@ public class MainFrame {
 	private JFrame mainFrame;
 	private JPanel mainPanel;
 	public static ArrayList<Order> orderlist = new ArrayList();
+	private static ArrayList<Car>   carlist=new ArrayList();
 	
 	private void initialize() {
 		Product p1 = new Product("1233121","牙膏",15,66,true);
@@ -135,6 +137,61 @@ public class MainFrame {
 		orderMenu.add(seeMenuItem);
 		orderMenu.add(inputMenuItem);				
 				
+		
+		
+		
+		//王飞//车辆管理菜单--车辆信息管理
+		JMenuItem carMenuItem = new JMenuItem("车辆信息管理");
+		carMenuItem.setFont(new Font("微软雅黑", Font.BOLD, 15));
+		carMenuItem.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				mainPanel.removeAll();
+				new CarManagementFrame(mainFrame,mainPanel);
+				mainPanel.repaint();
+			}
+			
+		});
+		//车辆管理菜单--运输管理
+		JMenuItem transMenuItem = new JMenuItem("运输管理");
+		transMenuItem.setFont(new Font("微软雅黑", Font.BOLD, 15));
+		transMenuItem.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				mainPanel.removeAll();
+				new TransManagementFrame(mainFrame,mainPanel);
+				mainPanel.repaint();
+			}
+			
+		});
+		
+		carMenu.add(carMenuItem);
+		carMenu.add(transMenuItem);
+		
+		//库存管理菜单--入库库存
+		JMenuItem deliverMenuItem = new JMenuItem("入库库存");
+		deliverMenuItem.setFont(new Font("微软雅黑", Font.BOLD, 15));
+		deliverMenuItem.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				mainPanel.removeAll();
+				new DeliverStorageFrame(mainFrame,mainPanel);
+				mainPanel.repaint();
+			}
+			
+		});
+		//库存管理菜单--出库库存
+		JMenuItem deliveredMenuItem=new  JMenuItem("出库库存");
+		deliveredMenuItem.setFont(new Font("微软雅黑", Font.BOLD, 15));
+		deliveredMenuItem.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				mainPanel.removeAll();
+				new DeliveredStorageFrame(mainFrame,mainPanel);
+				mainPanel.repaint();
+			}
+			
+		});
+		
+		stockMenu.add(deliverMenuItem);
+		stockMenu.add(deliveredMenuItem);
+		
 		mainFrame.setVisible(true);
 	}
 	/**
@@ -147,5 +204,10 @@ public class MainFrame {
 
 	public static ArrayList<Order> getOrderList(){
 		return orderlist;
+	}
+	
+	//王飞
+	public static ArrayList<Car> getCarList(){
+		return carlist;
 	}
 }
