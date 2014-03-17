@@ -127,6 +127,15 @@ public class ProductDialog extends JDialog{
 		});
 		JButton canclebutton = new JButton("取消");
 		canclebutton.setBounds(130, 205, 80, 40);
+		canclebutton.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO 自动生成的方法存根
+				dispose();
+			}
+			
+		});
 		add(confirmbutton);
 		add(canclebutton);
 	}

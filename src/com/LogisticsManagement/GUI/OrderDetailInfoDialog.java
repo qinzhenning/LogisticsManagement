@@ -47,6 +47,7 @@ public class OrderDetailInfoDialog extends JDialog{
 		JTextArea ptext = new JTextArea(pstr);
 		JScrollPane scroll = new JScrollPane(ptext); 
 		ptext.setLineWrap(true);
+		ptext.setEditable(false);
 		ptext.setBorder(BorderFactory.createTitledBorder("订单货物信息:"));
 		ptext.setBounds(5, 70, 340, 100);
 		add(ptext);

@@ -88,12 +88,14 @@ public class TransManagementFrame{
 				jButton2.setBounds(550, 480, 120, 24);
 				jButton2.addActionListener(new ActionListener(){
 					public void actionPerformed(ActionEvent arg0) {
-						int i=jTable1.getSelectedColumn();
+						int i=jTable1.getSelectedRow();
 						if(i<0){
-							JOptionPane.showMessageDialog(null,"请选择要查看的车辆");
+							new MessageUI(Color.red,"请选择要查看的车辆");
+							//JOptionPane.showMessageDialog(null,"请选择要查看的车辆");
 						}
 						else if(s[i][3]!="Ready"){
-							JOptionPane.showMessageDialog(null,"该车不处于未发货状态，无法添加运单");
+							new MessageUI(Color.red,"该车不处于未发货状态，无法添加运单");
+							//JOptionPane.showMessageDialog(null,"该车不处于未发货状态，无法添加运单");
 						}
 						else{
 							new AddOrderDialog(mainFrame,Integer.parseInt(s[i][0]));
@@ -109,9 +111,10 @@ public class TransManagementFrame{
 				jButton3.setBounds(700, 480, 120, 24);
 				jButton3.addActionListener(new ActionListener(){
 					public void actionPerformed(ActionEvent arg0) {
-						int i=jTable1.getSelectedColumn();
+						int i=jTable1.getSelectedRow();
 						if(i<0){
-							JOptionPane.showMessageDialog(null,"请选择要查看的车辆");
+							new MessageUI(Color.red,"请选择要查看的车辆");
+							//JOptionPane.showMessageDialog(null,"请选择要查看的车辆");
 						}
 						else {
 							new OrderListDialog(mainFrame,Integer.parseInt(s[i][0]));

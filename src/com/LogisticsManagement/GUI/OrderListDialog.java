@@ -46,6 +46,9 @@ public class OrderListDialog extends JDialog{
 				//jScrollPane1.setLayout(null);
 				getContentPane().add(jScrollPane1, BorderLayout.CENTER);
 				{
+					
+					orlist=new ArrayList<Order>();
+					
 					for(Car c:MainFrame.getCarList()){
 						if(c.getCid()==cid){
 							orlist=c.getOrlist();

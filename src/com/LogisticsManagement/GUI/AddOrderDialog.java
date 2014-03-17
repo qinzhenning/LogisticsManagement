@@ -63,7 +63,7 @@ public class AddOrderDialog extends JDialog{
 					{
 						list1=new ArrayList<Order>();
 						for(Order o:MainFrame.getOrderList()){
-							if(o.getStatus().equals("NOTSEND"))
+							if(o.getStatus()=="Î´·¢»õ")
 								list1.add(o);
 						}
 						int i=list1.size();
@@ -94,23 +94,6 @@ public class AddOrderDialog extends JDialog{
 					jButton2.setBounds(173, 215, 75, 25);
 					jButton2.addActionListener(new ActionListener(){
 						public void actionPerformed(ActionEvent e) {
-							list2=new ArrayList<Order>();
-							int count=jTable1.getRowCount();
-							for(int i=0;i<count;i++){
-								if(jTable1Model.getValueAt(i, 1)!=null){
-									if(jTable1Model.getValueAt(i, 1).equals(true)){
-										String id=s[i][0];
-										for(Order or:list1){
-											if(or.getOid().equals(id)){
-												list2.add(or);
-											}
-										}
-									}
-								}
-							}
-							
-							add();
-							
 							close();
 						}
 						
@@ -123,8 +106,27 @@ public class AddOrderDialog extends JDialog{
 					jButton1.setBounds(27, 215, 75, 25);
 					jButton1.addActionListener(new ActionListener(){
 						public void actionPerformed(ActionEvent e) {
+							list2=new ArrayList<Order>();
+							int count=jTable1.getRowCount();
+							for(int i=0;i<count;i++){
+								if(jTable1Model.getValueAt(i, 1)!=null){
+									if(jTable1Model.getValueAt(i, 1).equals(true)){
+										String id=s[i][0];
+										for(Order or:list1){
+											if(or.getOid()==id){
+												list2.add(or);
+											}
+										}
+									}
+								}
+							}
+						
+							add();
+							
 							close();
 						}
+					
+						
 						
 					});
 				}
@@ -148,6 +150,7 @@ public class AddOrderDialog extends JDialog{
 				break;
 			}
 		}
+		
 	}
 
 }

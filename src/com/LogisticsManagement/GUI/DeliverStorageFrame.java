@@ -63,7 +63,7 @@ public class DeliverStorageFrame{
 			
 			ArrayList<Order> list1=new ArrayList<Order>();
 			for(Order o:MainFrame.getOrderList()){
-				if(o.getStatus().equals("NOTSEND"))
+				if(o.getStatus().equals("Î´·¢»õ"))
 					list1.add(o);
 			}
 			int i=list1.size();

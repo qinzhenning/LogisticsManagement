@@ -3,6 +3,7 @@
  */
 package com.LogisticsManagement.GUI;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -106,19 +107,29 @@ public class OrderUpdateDialog extends JDialog{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO 自动生成的方法存根
-			if(statusbox.isEnabled()){
-				order.setStatus(statusstr[statusbox.getSelectedIndex()]);
-				String move = dateSelector.getDate()+","+infotext.getText()+","+peopletext.getText();
-				order.addMove_message(move);
-				table.setModel(new OrderListModel(olist));
+				
+			if(!(infotext.getText().equals("") || peopletext.getText().equals("")))
+			{	
+				if(statusbox.isEnabled()){
+					order.setStatus(statusstr[statusbox.getSelectedIndex()]);
+					String move = dateSelector.getDate()+","+infotext.getText()+","+peopletext.getText();
+					order.addMove_message(move);
+					if(statusstr[statusbox.getSelectedIndex()].equals("结束") || statusstr[statusbox.getSelectedIndex()].equals("退回") )
+					order.setEdate(dateSelector.getDate());
+					table.setModel(new OrderListModel(olist));
+					new MessageUI(Color.green,"更新成功");
+				}
+				else{
+					String move = dateSelector.getDate()+","+infotext.getText()+","+peopletext.getText();
+					order.addMove_message(move);
+					new MessageUI(Color.green,"更新成功");
+				}
+				dispose();
 			}
 			else{
-				String move = dateSelector.getDate()+","+infotext.getText()+","+peopletext.getText();
-				order.addMove_message(move);
+				new MessageUI(Color.red,"信息不完整,更新失败!");
 			}
-			dispose();
-			}
-			
+		}
 		});
 		add(confirmbutton);
 		

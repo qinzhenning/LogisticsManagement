@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JButton;
@@ -15,6 +16,7 @@ import javax.swing.JTextField;
 
 import com.LogisticsManagement.logic.Car;
 import com.LogisticsManagement.logic.CarsStatus;
+import com.LogisticsManagement.logic.Order;
 
 /**
 * This code was edited or generated using CloudGarden's Jigloo
@@ -117,6 +119,7 @@ public class CarDialog extends JDialog{
 							c.setClicense(clicense);
 							c.setCuser(cuser);
 							c.setCstatus(CarsStatus.Ready);
+							c.setOrlist(new ArrayList<Order>());
 							MainFrame.getCarList().add(c);
 							//ÒþÈ¥¸ÃDialog
 							close();
